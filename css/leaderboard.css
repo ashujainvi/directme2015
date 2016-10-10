@@ -1,0 +1,28 @@
+html{
+    height:100%;
+}    
+
+body{
+ 		background-color: rgb(71, 119, 135);
+        overflow:hidden;
+        border: 8px solid #808080;
+        height:inherit;
+        margin:0px;
+         font-family: 'Slabo 27px', serif;
+ 	}
+
+    .container{
+         
+         margin:auto;
+         height:inherit;
+        
+     }
+
+    .heading{
+        text-align:center;
+    }
+
+    .heading h1{
+        font-size:53px;
+    }
+

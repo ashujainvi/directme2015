@@ -1,0 +1,50 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Data;
+using System.Data.SqlClient;
+using MySql.Data.MySqlClient;
+using System.Configuration;
+using PARK;
+
+public class car
+{
+     
+    public static void shop(string value,string ttid)
+    {
+        int Temp = 0;
+        Connect connect;
+        Connect.ConnectPark();
+        //string insert = "select Id from car where Id=@carid";
+        //string[] s = { "@carid" };
+        //connect = new Connect(insert, s, value);
+        //int id = Convert.ToInt32(connect.ds.Tables[0].Rows[0][0]);
+
+        string insert_1 = "select count(user_id) from garage where car_id=@carid && user_id=@id";
+        string[] s1 = { "@carid", "@id" };
+        connect = new Connect(insert_1, s1,value, ttid);
+        Temp = Convert.ToInt32(connect.ds.Tables[0].Rows[0][0]);
+       
+        string insert_2 = "select count(user_id) from garage where user_id=@uid";
+        string[] s2 = { "@uid" };
+        connect = new Connect(insert_2, s2, ttid);
+        int count = Convert.ToInt32(connect.ds.Tables[0].Rows[0][0]);
+       
+        if(Temp==1)
+        {
+        
+        }
+        else if (count == 5)
+        {
+        }
+        else
+        {
+            User u = new User();
+            u.Buy(ttid,value);
+
+        }
+    }
+
+    
+}

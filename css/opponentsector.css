@@ -1,0 +1,155 @@
+body{
+ 		background-color:rgb(117, 203, 241);
+        overflow:hidden;
+        margin:0;
+ 		height: 100%;
+         font-family: 'Slabo 27px', serif;
+}
+
+.container {
+    position:relative;
+    margin:auto;
+    width:1000px;
+}
+
+
+.logo {
+    position: absolute;
+    margin-top: 30px;
+}
+
+ .heading{
+     position:absolute;
+     margin-left:300px;
+ 
+     margin-top: 12px;
+     text-align:center;
+}
+
+ .heading h1{
+     font-size:60px;
+ 
+     margin-bottom: 2px;
+}
+
+ .heading p{
+     font-size:16px;
+     padding:0;
+ }
+
+
+ 	.footer{
+ 		position: absolute;
+ 		height: 327px;
+ 		margin: 0px;
+ 		background-image:url(../img/road8.png);
+ 		bottom: 0px;
+        
+ 		left: -190px;
+ 		width: 1376px;
+        top: 340px;
+ 		background-size: contain;
+}
+
+#roadImage {
+    position:relative;
+    width:100%;
+    height:100%;
+}
+
+.buildingContainer {
+    position: absolute;
+    width: 1200px;
+    margin-left: 0px;
+    top: 222px;
+    z-index:6;
+}
+
+.building {
+    position :absolute;
+   
+    
+}
+
+#building1Div {
+    left: 58px;
+    top: 28px;
+    
+    
+}
+
+#building2Div {
+    left: 261px;
+    top: 79px;
+    
+}
+
+#building3Div {
+    left: 512px;
+   
+    top: 5px;
+}
+
+#building4Div {
+    left: 758px;
+    top: 7px;
+}
+
+.buildingImage {
+    width: 232px;
+    -webkit-transition: all 0.5s ease-in;
+    
+}
+
+.buildingImage:hover{
+    -webkit-box-shadow: inset 1px 0px 42px 13px rgba(255,255,255,0.4);
+-moz-box-shadow: inset 1px 0px 42px 13px rgba(255,255,255,0.4);
+box-shadow: inset 1px 0px 42px 13px rgba(255,255,255,0.4);
+
+border-radius: 55px 55px 0px 0px;
+-moz-border-radius: 55px 55px 0px 0px;
+-webkit-border-radius: 55px 55px 0px 0px;
+
+
+cursor:pointer;
+    }
+
+.carContainer {
+    position:absolute;
+    top: 410px;
+    left: -390px;
+}
+
+.arrowDown{
+    position:absolute;
+     
+    top: -25px;
+    left: 100px;
+    -webkit-animation: arrow-motion 2s linear 0.1s infinite; 
+    animation: arrow-motion 2s linear 0.1s infinite;  
+}
+
+/* Chrome, Safari, Opera */
+@-webkit-keyframes arrow-motion {
+    0%   { top:-30px;}
+    50%  { top:-20px;}
+    100% { top:-30px;}
+}
+
+/* Standard syntax */
+@keyframes arrow-motion {
+    0%   {top:-30px;}
+    50%  {top:-20px;}
+    100% { top:-30px;}
+}
+.continue {
+position: absolute;
+margin-left: 780px;
+top: 56px;
+background: rgb(255, 95, 95);
+border-radius: 4px;
+border: 3px solid #eee;
+padding: 10px 25px;
+font-size: 30px;
+cursor:pointer;
+}

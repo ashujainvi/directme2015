@@ -1,0 +1,331 @@
+﻿  html{
+      height:100%;
+      overflow:hidden;
+  }
+
+  /*body {
+      margin:0;
+      height:100%;
+      overflow:hidden;
+      border: 10px solid #666;
+      background-color: #00ff90;
+      background-image:url('../img/garage1.png');
+      background-position-x:center;
+      background-position-y: 345px;
+      background-repeat: no-repeat;
+      font-family: 'Slabo 27px', serif;
+  }*/
+
+  body {
+      margin:0;
+      height:100%;
+      overflow:hidden;
+      border: 10px solid #666;
+      background-color: rgba(217, 252, 255, 1);
+      background-image:url('../img/back1.png');
+      background-size:cover;
+      /*background-position-x:center;
+      background-position-y: 345px;*/
+      background-repeat: no-repeat;
+      font-family: 'Slabo 27px', serif;
+  }
+
+
+  .modal-content{
+      background:#00ff90;
+  }
+
+  .modal-header {
+      text-align:center;
+  min-height: 16.43px;
+  padding: 15px;
+  border-bottom: 1px dashed #8E8E8E;
+  }
+
+  .modal-footer {
+  padding: 15px;
+  text-align: right;
+  border-top: 1px dashed #8E8E8E;
+  }
+
+
+  a{
+      text-decoration:none;
+      color:inherit;
+
+  }
+
+  a:hover , a:visited , a:focus{
+      text-decoration:none;
+  }
+
+  .container{
+      width:900px;
+      height: 700px;
+      position:relative;
+      margin:auto;
+      /* height:inherit; */
+      background-image:url('../img/garage2.png');
+      background-position-x:center;
+      background-position-y: 318px;
+      background-repeat: no-repeat;
+  }
+
+
+  .logo{
+      position:absolute;
+      margin:20px;
+      margin-left: 302px;
+      cursor:pointer;
+  }
+
+  .logout{
+       position:absolute; 
+      margin: 18px 35px;
+      text-align:center;
+      text-shadow: 0px 2px 13px #727263;
+      cursor:pointer;
+
+  }
+
+
+  .carContainer {
+  position: absolute;
+  top: 514px;
+  text-align: center;
+  cursor: pointer;
+  }
+
+  .carContainer h2{
+      margin-bottom:2px;
+      margin-top:2px;
+      color: rgba(0, 0, 0, 1);
+      font-size: 25px;
+  }
+
+  .arrowDown{
+      position:absolute;
+
+      top: -25px;
+      left: 140px;
+      -webkit-animation: arrow-motion 2s linear 0.1s infinite; 
+      animation: arrow-motion 2s linear 0.1s infinite;  
+  }
+
+  /* Chrome, Safari, Opera */
+  @-webkit-keyframes arrow-motion {
+      0%   { top:-30px;}
+      50%  { top:-20px;}
+      100% { top:-30px;}
+  }
+
+  /* Standard syntax */
+  @keyframes arrow-motion {
+      0%   {top:-30px;}
+      50%  {top:-20px;}
+      100% { top:-30px;}
+  }
+
+  .rightInfo{
+      position:absolute;
+      right: 4px;
+      top:20px;
+      /* width: 300px; */
+      color: rgba(255, 249, 0, 0.98);
+      font-weight:600;
+      background-color:rgba(2,2,2,0.3);
+      font-size:30px;
+      padding: 5px 20px;
+      text-align:center;
+      border: 1px solid;
+  }
+
+  .rightInfo p{
+      margin:0;
+  }
+
+  .leftContent{
+      position:absolute;
+      margin-top: 150px;
+      background-image:url('../img/pole.png');
+      background-position:center;
+      /* background-attachment:fixed; */
+      background-size:contain;
+      background-repeat:no-repeat;
+      padding: 50px 0px;
+      height: 505px;
+      left:-10px;
+  }
+  .key{
+      cursor:pointer;
+      width:auto;
+  }
+
+  .key1{
+      top:3px;
+      background: rgb(172, 177, 178);
+  }
+
+  .key2{
+      top: 150px;
+      background: rgb(126, 193, 114);
+  }
+
+  .light{
+      width: 204px;    
+      padding: 0px 20px;
+      font-size: 11px;
+      color: rgba(255, 255, 255, 1);
+      font-weight:200;
+      text-align: center;
+      border-radius:4px;
+      border: 3px solid #eee;
+
+      margin-bottom: 4px;
+      text-shadow: 0px 1px 16px #FFFFB2;
+  }
+
+
+  .park{
+
+      /* width:100%; */
+      padding: 0px 20px;
+      background: rgb(253, 204, 5); 
+  }
+
+  .park a{
+       color: rgba(255, 255, 255, 1);
+  }
+
+  .light h1{
+      font-size: 27px;
+      margin:10px;
+  }
+
+  .rightContent{
+      position:absolute;
+      margin-left: 770px;
+      margin-top: 169px;
+      text-align:center;
+      background: rgba(255, 255, 255, 0.53);
+      padding: 12px 8px;
+      color:#05750E;
+      text-shadow: 0px 1px 10px #eee;
+  }
+
+
+  /*CHARACTER*/
+
+  .herrbrueckers {
+    background: url("../img/boy3.png");
+    position: absolute;
+    width: 100px;
+    height: 101px;
+    display: block;
+    background-size: contain;
+    margin: 20px auto;
+    
+  
+    margin-top: 5px;
+}
+  .herrbrueckers:after, .herrbrueckers:before {
+    content: "";
+    position: absolute;
+    display: block;
+    border-radius: 50%;
+    height: 12px;
+    width: 6px;
+    background: #303030;
+    top: 30%;
+     -webkit-animation: blinkiblinki 6s 1s infinite linear alternate; 
+  }
+  .herrbrueckers:after {
+    right: 35%;
+  }
+  .herrbrueckers:before {
+    left: 31%;
+  }
+
+  @-webkit-keyframes blinkiblinki {
+    0% {
+      height: 12px;
+      top: 30%;
+    }
+    10% {
+      height: 12px;
+      top: 30%;
+    }
+    11% {
+      height: 2px;
+      top: 32%;
+    }
+    13% {
+      height: 2px;
+      top: 32%;
+    }
+    14% {
+      height: 12px;
+      top: 30%;
+    }
+    30% {
+      height: 12px;
+      top: 30%;
+    }
+    34% {
+      height: 12px;
+      top: 30%;
+    }
+    36% {
+      height: 2px;
+      top: 32%;
+    }
+    38% {
+      height: 12px;
+      top: 30%;
+    }
+    40% {
+      height: 2px;
+      top: 32%;
+    }
+    42% {
+      height: 12px;
+      top: 30%;
+    }
+    99.9999% {
+      height: 12px;
+      top: 30%;
+    }
+  }
+
+   /*========RAIN=============*/
+  .drop {
+    background:#eee;
+    /*background: -moz-linear-gradient(top, rgba(13,52,58,1) 0%, rgba(255,255,255,.6) 100%);*/
+      width:1px;
+      height:55px;
+      position: absolute;
+      bottom:200px;
+      -webkit-animation: fall 2s linear infinite;
+    -moz-animation: fall 2s linear infinite;
+
+  }
+
+  /* animate the drops*/
+  @-webkit-keyframes fall {
+      to {margin-top:670px;}
+  }
+  @-moz-keyframes fall {
+      to {margin-top:670px;}
+  }
+
+
+  .helloMsg{
+      position:absolute;
+      margin-left: 180px;
+  }
+
+  .helloTxt{
+      
+      text-shadow: 0px 2px 30px rgba(244, 237, 63, 0.86);
+      margin-left: 90px;
+  }

@@ -1,0 +1,121 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Configuration;
+using System.Linq;
+using System.Web;
+using PARK;
+using MySql.Data.MySqlClient;
+using System.Data;
+using System.Data.SqlClient;
+
+
+public class parking2
+{
+    public int id { get; set; }               //Parking id( id of every parking space)
+    public bool private_park { get; set; }    //if False public :: True private  
+    public int sector_id { get; set; }
+    public bool allowed { get; set; }         //if False non-parking :: True parking
+    int i;
+   // public static int parkid { get; set; }
+
+
+    //public parking2()
+    //{
+    //    private_park = false;
+    //    sector_id = 0;
+    //    allowed = false;
+    //}
+
+
+
+    public bool IsAllowed(int ownerparkingid, int ttid)              //last two checks for parking
+    {
+
+        Connect connect;
+        Connect.ConnectPark();
+        string insert = "SELECT count(parking_owner_id) from parking_log  WHERE user_id=@user_id && is_successful=1 && parking_owner_id!=0";
+        string[] s = { "@user_id" };
+        connect = new Connect(insert, s, ttid);
+        int countrows = Convert.ToInt32(connect.ds.Tables[0].Rows[0][0]);
+        if (countrows == 0)
+        {
+            return true;
+        }
+        else
+        {
+
+            //MySqlConnection conn = new MySqlConnection(ConfigurationManager.ConnectionStrings["Park"].ConnectionString);
+
+            //conn.Open();
+            string q1 = "SELECT parking_owner_id FROM parking_log WHERE user_id=@user_id && is_successful=1 && parking_owner_id!=0 ORDER BY timestamp DESC limit 2";
+            string[] s1 = { "@user_id" };
+            connect = new Connect(q1, s1, ttid);
+
+            //string select = "SELECT parking_owner_id FROM successful WHERE user_id=@user_id && is_successful=1 ORDER BY time_stamp DESC";
+            //MySqlCommand cmd = new MySqlCommand(select, conn);
+            //cmd.Parameters.AddWithValue("@user_id", ttid);
+
+            foreach (DataRow row in connect.ds.Tables[0].Rows)
+            {
+                int check = Convert.ToInt32(row["parking_owner_id"]);
+                string q3 = "select user_id from user_parking where parking_id=@park ";
+                string[] s3 = { "@park" };
+                connect = new Connect(q3, s3, check);
+                int id = Convert.ToInt32(connect.executescalar());
+
+                if (id == ownerparkingid)
+                {
+                    return false;   //Happens if car was parked there... Loop breaks as use of return
+                }
+
+            }
+             return true;
+
+        }
+
+    }
+
+    public void park(int ttid, int oponentparkingid, int lanevalue, int carid)
+    {
+        Connect connect;
+        Connect.ConnectPark();
+        //string insert = "Select parking_id from user_parking where user_id=@id";
+        //string[] s = { "@id" };
+        //connect = new Connect(insert, s, ownerid);
+        //int parkingid = Convert.ToInt32(connect.ds.Tables[0].Rows[0][0]);
+       // int parkid = parkingid + lanevalue - 1;
+        //string s2 = "Select count(parking_id) from garage where parking_id=@p_id";
+        //string[] q = { "@p_id" };
+        //connect = new Connect(s2, q, parkid);
+        //int id = Convert.ToInt32(connect.executescalar());
+        
+            string insert_1 = "update garage set parking_id=@parkingid,time_stamp=@time where car_id=@carid && user_id=@tid && status=0";
+            string[] s1 = { "@carid", "@tid", "@parkingid", "@time" };
+            connect = new Connect(insert_1, s1, carid, ttid, oponentparkingid, DateTime.Now);
+         
+
+    }
+    /// <summary>
+    /// Parking in public lane
+    /// </summary>
+    /// <param name="sector">sector where public lane lies</param>
+    /// <param name="ttid">Users' ttid passed from session</param>
+    /// <param name="lanevalue">parking id</param>
+    /// <param name="carid">car_id</param>
+    /// <returns></returns>
+    public void parkpublic(int parkingid, int ttid, int carid)
+    {
+        Connect connect;
+        Connect.ConnectPark();
+        string insert_1 = "update garage set parking_id=@parkingid,time_stamp=@time where car_id=@carid && user_id=@tid && status=0";
+        string[] s1 = { "@carid", "@tid", "@parkingid", "@time" };
+        connect = new Connect(insert_1, s1, carid, ttid, parkingid, DateTime.Now);
+
+
+    }
+
+
+
+}
+
+

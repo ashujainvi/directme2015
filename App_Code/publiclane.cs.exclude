@@ -1,0 +1,34 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using MySql.Data.MySqlClient;
+using PARK;
+using System.Data;
+using Newtonsoft.Json;
+/// <summary>
+/// Summary description for publiclane
+/// </summary>
+public class publiclane
+{
+    public int public_id { get; set; }
+    public string value(string lanevalue,string ttid)
+    {
+        Connect connect;
+        Connect.ConnectPark();
+        string query = "select Id from parking where sector_id=@sector && private=0";
+        string[] s = { "@sector" };
+        connect = new Connect(query, s,lanevalue);
+        List<publiclane> lst = new List<publiclane>();
+        foreach (DataRow row in connect.ds.Tables[0].Rows)
+        {
+           publiclane id = new publiclane();
+            id.public_id = Convert.ToInt32(row[0]);
+            
+            lst.Add(id);
+        }
+        return JsonConvert.SerializeObject(lst);
+
+    }
+
+}

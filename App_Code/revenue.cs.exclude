@@ -1,0 +1,49 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Configuration;
+using System.Data;
+using System.Data.SqlClient;
+using MySql.Data.MySqlClient;
+using PARK;
+
+
+public class revenue
+{
+    
+    public  void generaterevenueparking(int ttid,int carid)
+    {
+        MySqlConnection conn = new MySqlConnection(ConfigurationManager.ConnectionStrings["Park"].ConnectionString);
+        conn.Open();
+        string str = "SELECT cash FROM user WHERE ttid=@uid";
+        MySqlCommand com = new MySqlCommand(str, conn);
+        com.Parameters.AddWithValue("@uid", ttid);
+        DataSet ds = new DataSet();
+        MySqlDataAdapter sda = new MySqlDataAdapter(com);
+        sda.Fill(ds);
+        int cash = Convert.ToInt32(ds.Tables[0].Rows[0]["cash"].ToString()); 
+        
+        string query = "select sum(value) from car";
+        MySqlCommand com1 = new MySqlCommand(query, conn);
+        int carcash = Convert.ToInt32(com1.ExecuteScalar());
+        int networth = cash + carcash;
+
+        string query1 = "Select base_revenue from car where car_id=@id";
+        MySqlCommand com2 = new MySqlCommand(query1,conn);
+        com2.Parameters.AddWithValue("@id", carid);
+        int public_revenue = Convert.ToInt32(com1.ExecuteScalar());
+        double value = (.3 * public_revenue);
+        int private_parking_revenue = Convert.ToInt32(value);
+        double value1 = (.7* public_revenue);
+        int private_nonparking_revenue = Convert.ToInt32(value1);
+
+        string query2 = "Update user set cash+=@cash";
+        MySqlCommand com3 = new MySqlCommand(query2, conn);
+        com2.Parameters.AddWithValue("@id",public_revenue);
+        
+
+      }
+
+	
+}

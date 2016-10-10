@@ -1,0 +1,12 @@
+﻿body {
+    height:100%;
+    overflow:hidden;
+    background:#00ff90;
+    font-family: 'Slabo 27px', serif;
+}
+
+
+.header{
+    text-align:center;
+ 
+}

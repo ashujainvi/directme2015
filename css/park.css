@@ -1,0 +1,163 @@
+body{
+ 		background-color:rgb(117, 203, 241);
+        overflow:hidden;
+        margin:0;
+ 		height: 100%;
+         font-family: 'Slabo 27px', serif;
+}
+
+.container {
+    position:relative;
+    margin:auto;
+    width:1000px;
+}
+
+
+.logo {
+    position: absolute;
+    margin-top: 30px;
+}
+
+ .heading{
+     position:absolute;
+     margin-left: 260px;
+ 
+     margin-top: 12px;
+     text-align:center;
+}
+
+ .heading h1{
+     font-size:60px;
+ 
+     margin-bottom: 2px;
+}
+
+ .heading p{
+     font-size:16px;
+     padding:0;
+ }
+
+ #cloud1 {
+    position:absolute;
+    top: 50px;
+    z-index:-1;
+    -webkit-animation: move-cloud1 40s linear infinite;
+         animation: move-cloud1 40s linear infinite;
+ 	}
+
+
+ 		/* Standard syntax */
+		@-webkit-keyframes move-cloud1 {
+		    from {
+                -webkit-transform:translateX(1500px);
+                /*-webkit-transform:translateZ(0px);*/
+
+		    }
+		    to {
+                -webkit-transform:translateX(-500px);
+                /*-webkit-transform:translateZ(0px);*/
+		    }
+		}
+
+
+		 	/* Chrome, Safari, Opera */
+		@keyframes move-cloud1 {
+		    from {
+                transform:translateX(1500px);
+                /*transform:translateZ(0px);*/
+
+		    }
+		    to {
+                transform:translateX(-500px);
+                /*transform:translateZ(0px);*/
+		    }
+		}
+	
+#cloud2 {
+    position:absolute;
+    /* width:100px; */
+    top: 120px;
+    z-index:-1;
+    -webkit-transform:translateX(1500px);
+    transform:translateX(1550px);
+    -webkit-animation: move-cloud2 30s linear infinite ;
+         animation: move-cloud2 30s linear infinite;
+         -webkit-animation-delay:10s;
+         animation-delay:10s;
+ 	}
+
+
+ 		/* Standard syntax */
+		@-webkit-keyframes move-cloud2 {
+		    from {
+                -webkit-transform:translateX(1550px);
+                /*-webkit-transform:translateZ(0px);*/
+
+		    }
+		    to {
+                -webkit-transform:translateX(-500px);
+                /*-webkit-transform:translateZ(0px);*/
+		    }
+		}
+
+
+		 	/* Chrome, Safari, Opera */
+		@keyframes move-cloud2 {
+		    from {
+                transform:translateX(1550px);
+                /*transform:translateZ(0px);*/
+
+		    }
+		    to {
+                transform:translateX(-500px);
+                /*transform:translateZ(0px);*/
+		    }
+		}
+
+#cloud1Image {
+    position:relative;
+    width: 150px;
+}
+	
+#cloud2Image {
+    position:relative;
+    width: 200px;
+}
+
+ 	.footer{
+ 		position: absolute;
+ 		height: 327px;
+ 		margin: 0px;
+ 		background-image:url(../img/road7.png);
+ 		bottom: 0px;
+        
+ 		left: -190px;
+ 		width: 1376px;
+        top: 340px;
+ 		background-size: contain;
+}
+
+#roadImage {
+    position:relative;
+    width:100%;
+    height:100%;
+}
+
+
+
+.carContainer {
+    position:absolute;
+    top: 410px;
+    left: -390px;
+}
+
+.continue {
+position: absolute;
+margin-left: 780px;
+top: 56px;
+background: rgb(255, 95, 95);
+border-radius: 4px;
+border: 3px solid #eee;
+padding: 10px 25px;
+font-size: 30px;
+}
